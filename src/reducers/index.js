@@ -1,8 +1,15 @@
 import { ADD_MOVIES } from '../actions';
 
-export default function movies(state = [], action) {
+const intialMoviesState = {
+    list: [],
+    favourites: []
+}
+export default function movies(state = intialMoviesState, action) {
     if(action.type === ADD_MOVIES){
-        return action.movies;
+        return {
+            ...state,
+            list: action.movies
+        }
     }
     // our current state will not be changed by reducer
     // reducer will return a new state(action.movies) and 
