@@ -5,6 +5,7 @@ const intialMoviesState = {
     favourites: [],
     showFavourites: false
 }
+
 export default function movies(state = intialMoviesState, action) {
     // if(action.type === ADD_MOVIES){
     //     return {

@@ -8,7 +8,8 @@ class App extends React.Component {
     componentDidMount() {
         const { store } = this.props;
         store.subscribe(() => {
-            console.log('Updated');
+            console.log('State Updated');
+            // to re render after state change
             this.forceUpdate();
         });
         // make api call to get all the movies
@@ -49,12 +50,13 @@ class App extends React.Component {
 
                     <div className="list">
                         {displayMovies.map((movie, index) => {
-                            return <MovieCard 
-                            movie={movie} 
-                            key={`movies-${index}`} 
-                            dispatch={this.props.store.dispatch}
-                            isFavourite={this.isMovieFavourite(movie)}
-                            />
+                            return (
+                            <MovieCard 
+                                movie={movie} 
+                                key={`movies-${index}`} 
+                                dispatch={this.props.store.dispatch}
+                                isFavourite={this.isMovieFavourite(movie)}
+                            /> );
                         })}
 
                         {displayMovies.length === 0 ? <div className="no-movies">No movies to show</div> : null}
