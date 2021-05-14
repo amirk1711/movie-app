@@ -11,22 +11,7 @@ const intialMoviesState = {
     favourites: [],
     showFavourites: false
 }
-
 export function movies(state = intialMoviesState, action) {
-    console.log('MOVIES REDUCER');
-
-    // if(action.type === ADD_MOVIES){
-    //     return {
-    //         ...state,
-    //         list: action.movies
-    //     }
-    // }
-    // // our current state will not be changed by reducer
-    // // reducer will return a new state(action.movies) and 
-    // // it will be merged with the current state
-    // return state;
-
-
     switch(action.type){
         case ADD_MOVIES:
             return {
@@ -58,23 +43,9 @@ export function movies(state = intialMoviesState, action) {
 const intialSearchState = {
     result: {}
 };
-
 export function search (state = intialSearchState, action) {
-    console.log('SEARCH REDUCER');
     return state;
 }
-
-// const initialRootState = {
-//     movies: intialMoviesState,
-//     search: intialSearchState
-// }
-
-// export default function rootReducer (state = initialRootState, action) {
-//     return {
-//         movies: movies(state.movies, action),
-//         search: search(state.search, action)
-//     }
-// }
 
 export default combineReducers({
     movies: movies,
