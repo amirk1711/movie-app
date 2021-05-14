@@ -12,15 +12,23 @@ import combineReducers from './reducers';
 // this obj contains 2 properties {dispatch, getState}
 // same functions as in store
 // internal working => logger(obj)(next)(action)
-const logger = function({dispatch, getState}) {
-    return function(next){
-        return function(action){
-            // middleware code
-            console.log('ACTION_TYPE', action.type);
-            // to call next middleware
-            next(action);
-        }
-    }
+
+// const logger = function({ dispatch, getState }) {
+//     return function(next){
+//         return function(action){
+//             // middleware code
+//             console.log('ACTION_TYPE', action.type);
+//             // to call next middleware
+//             next(action);
+//         }
+//     }
+// }
+
+const logger = ({ dispatch, getState }) => (next) => (action) => {
+    // middleware code
+    console.log('ACTION_TYPE', action.type);
+    // to call next middleware
+    next(action);
 }
 
 // create a Redux store using 'movies'
