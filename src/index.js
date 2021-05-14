@@ -6,11 +6,11 @@ import { createStore } from 'redux';
 // file imports
 import './index.css';
 import App from './components/App';
-import movies from './reducers';
+import combineReducers from './reducers';
 
 // create a Redux store using 'movies'
 // as a root reducer function
-const store = createStore(movies);
+const store = createStore(combineReducers);
 
 ReactDOM.render(
 	<React.StrictMode>
