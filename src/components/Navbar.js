@@ -53,19 +53,6 @@ class Navbar extends Component {
   }
 }
 
-// class NavbarWrapper extends React.Component {
-//   render() {
-//     return (
-//       <StoreContext.Consumer>
-//         {(store) => (
-//           <Navbar dispatch={store.dispatch} search={this.props.search} />
-//         )}
-//       </StoreContext.Consumer>
-//     );
-//   }
-// }
-// export default NavbarWrapper;
-
 function mapStateToProps({ search }) {
   return {
     search,
