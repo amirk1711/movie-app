@@ -11,12 +11,12 @@ import App from './components/App';
 import rootReducer from './reducers';
 
 const logger =
-  ({ dispatch, getState }) =>
-  (next) =>
-  (action) => {
-    console.log('ACTION', action);
-    next(action);
-  };
+    ({ dispatch, getState }) =>
+    (next) =>
+    (action) => {
+        console.log('ACTION', action);
+        next(action);
+    };
 
 // create a Redux store
 const store = createStore(rootReducer, applyMiddleware(logger, thunk));
@@ -25,10 +25,10 @@ const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 // makes it aware of the entire Redux's store.
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
 // The <Provider> component makes the
 // Redux store available to any nested

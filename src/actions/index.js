@@ -7,39 +7,39 @@ export const ADD_MOVIE_TO_LIST = 'ADD_MOVIE_TO_LIST';
 export const ADD_SEARCH_RESULT = 'ADD_SEARCH_RESULT';
 
 // action creaters
-export function addMovies (movies) {
+export function addMovies(movies) {
     return {
         type: ADD_MOVIES,
-        movies: movies
+        movies: movies,
     };
 }
 
-export function addToFavourites (movie) {
+export function addToFavourites(movie) {
     return {
         type: ADD_TO_FAVOURITES,
-        movie: movie
+        movie: movie,
     };
 }
 
-export function removeFromFavourites (movie) {
+export function removeFromFavourites(movie) {
     return {
         type: REMOVE_FROM_FAVOURITES,
-        movie: movie
+        movie: movie,
     };
 }
 
-export function setShowFavourites (val) {
+export function setShowFavourites(val) {
     return {
         type: SET_SHOW_FAVOURITES,
         // val: val
-        val
+        val,
     };
 }
 
 export function addMovieToList(movie) {
     return {
         type: ADD_MOVIE_TO_LIST,
-        movie
+        movie,
     };
 }
 
@@ -61,7 +61,7 @@ export function handleMovieSearch(searchText) {
 
 export function addMovieSearchResult(movie) {
     return {
-      type: ADD_SEARCH_RESULT,
-      movie,
+        type: ADD_SEARCH_RESULT,
+        movie,
     };
 }

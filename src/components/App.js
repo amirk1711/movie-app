@@ -26,7 +26,7 @@ class App extends React.Component {
 
     render() {
         const { movies, search } = this.props;
-        const { list, favourites, showFavourites} = movies;
+        const { list, favourites, showFavourites } = movies;
 
         const displayMovies = showFavourites ? favourites : list;
         return (
@@ -76,7 +76,7 @@ class App extends React.Component {
     }
 }
 
-// by mapping state to props, movies and search properties 
+// by mapping state to props, movies and search properties
 // will be available into the App component as props
 function mapStateToProps(state) {
     return {
