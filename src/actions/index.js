@@ -43,6 +43,9 @@ export function addMovieToList(movie) {
     };
 }
 
+// this is an action creator which returns a function
+// instead of action object, to handle functions returned
+// by action creators, use redux-thunk middleware
 export function handleMovieSearch(searchText) {
     return function (dispatch) {
         const url = `http://www.omdbapi.com/?apikey=3db27b1f&t=${searchText}`;

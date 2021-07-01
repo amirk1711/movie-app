@@ -14,7 +14,7 @@ class App extends React.Component {
         const { movies } = this.props;
         const index = movies.favourites.indexOf(movie);
         if (index !== -1) {
-        // found the movie
+            // found the movie
             return true;
         }
         return false;
@@ -25,56 +25,64 @@ class App extends React.Component {
     };
 
     render() {
-        const { movies, search } = this.props; // { movies: {}, search: [] }
-        const { list, favourites = [], showFavourites = [] } = movies;
+        const { movies, search } = this.props;
+        const { list, favourites, showFavourites} = movies;
 
         const displayMovies = showFavourites ? favourites : list;
         return (
-        <div className="App">
-            <Navbar search={search} />
-            <div className="main">
-            <div className="tabs">
-                <div
-                className={`tab ${showFavourites ? '' : 'active-tabs'}`}
-                onClick={() => this.changeTab(false)}
-                >
-                Movies
-                </div>
-                <div
-                className={`tab ${showFavourites ? 'active-tabs' : ''}`}
-                onClick={() => this.changeTab(true)}
-                >
-                Favourites
-                </div>
-            </div>
+            <div className="App">
+                <Navbar search={search} />
+                <div className="main">
+                    <div className="tabs">
+                        <div
+                            className={`tab ${
+                                showFavourites ? '' : 'active-tabs'
+                            }`}
+                            onClick={() => this.changeTab(false)}
+                        >
+                            Movies
+                        </div>
+                        <div
+                            className={`tab ${
+                                showFavourites ? 'active-tabs' : ''
+                            }`}
+                            onClick={() => this.changeTab(true)}
+                        >
+                            Favourites
+                        </div>
+                    </div>
 
-            <div id="list">
-                {displayMovies.map((movie) => {
-                return (
-                    <MovieCard
-                    movie={movie}
-                    key={movie.imdbID}
-                    dispatch={this.props.dispatch}
-                    isFavourite={this.isMovieInFavourites(movie)}
-                    />
-                );
-                })}
+                    <div id="list">
+                        {displayMovies.map((movie) => {
+                            return (
+                                <MovieCard
+                                    movie={movie}
+                                    key={movie.imdbID}
+                                    dispatch={this.props.dispatch}
+                                    isFavourite={this.isMovieInFavourites(
+                                        movie
+                                    )}
+                                />
+                            );
+                        })}
 
-                {displayMovies.length === 0 ? (
-                <div className="no-movies">No movies to show</div>
-                ) : null}
+                        {displayMovies.length === 0 ? (
+                            <div className="no-movies">No movies to show</div>
+                        ) : null}
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         );
     }
 }
 
-function callback(state) {
+// by mapping state to props, movies and search properties 
+// will be available into the App component as props
+function mapStateToProps(state) {
     return {
         movies: state.movies,
         search: state.search,
     };
 }
-const connectedComponent = connect(callback)(App);
+const connectedComponent = connect(mapStateToProps)(App);
 export default connectedComponent;
